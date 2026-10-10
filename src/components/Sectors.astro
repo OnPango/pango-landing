@@ -1,0 +1,24 @@
+---
+const sectors = ["Ferreterías", "Bodegas y distribuidoras", "Farmacias", "Papelerías", "Alimentos", "Repuestos", "Textiles", "Tiendas de barrio", "Empaques", "Insumos médicos"];
+---
+
+<section id="sectores" class="pb-6 pt-14">
+  <div class="wrap flex flex-col items-center gap-5 text-center">
+    <h2 data-reveal class="text-[clamp(1.9rem,4vw,2.4rem)] font-bold leading-[1.1] tracking-[-0.01em]">
+      Pensado para pymes de <span class="text-copper-ink">muchos sectores</span>
+    </h2>
+    <p data-reveal style="--d:80ms" class="m-0 max-w-[560px] text-[17px] leading-[1.55] text-soft">
+      Si guardas, vendes o usas productos, Pango te ayuda a no quedarte corto ni a pasarte.
+    </p>
+  </div>
+  <div
+    aria-hidden="true"
+    data-reveal
+    style="--d:120ms; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)"
+    class="mt-18 overflow-hidden"
+  >
+    <div class="mq">
+      {[0, 1].map(() => sectors.map((s) => <span class="tag"><i></i>{s}</span>))}
+    </div>
+  </div>
+</section>

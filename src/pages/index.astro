@@ -2,13 +2,25 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro"; // placeholder: replace with your own navbar
 import Hero from "../components/Hero.astro";
+import Sectors from "../components/Sectors.astro";
+import HowItWorks from "../components/HowItWorks.astro";
+import Benefits from "../components/Benefits.astro";
+import Faq from "../components/Faq.astro";
+import Cta from "../components/Cta.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout>
   <Header />
   <main class="overflow-x-clip">
     <Hero />
+    <Sectors />
+    <HowItWorks />
+    <Benefits />
+    <Faq />
+    <Cta />
   </main>
+  <Footer />
   <script>
     import "../scripts/motion";
   </script>

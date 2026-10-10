@@ -1,0 +1,85 @@
+---
+const steps = [
+  { bg: "var(--copper-soft)", fg: "var(--copper-ink)", title: "Registra lo que entra y sale", body: "Escanea el código o escríbelo. Cada movimiento queda guardado y nada se borra.", icon: '<path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/>' },
+  { bg: "var(--ok-bg)", fg: "var(--ok-fg)", title: "Pango aprende de tu historial", body: "Calcula cuánto sueles consumir de cada producto y proyecta lo que viene.", icon: '<path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="m19 9-5 5-4-4-3 3"/>' },
+  { bg: "var(--warn-bg)", fg: "var(--warn-fg)", title: "Te avisa cuándo pedir", body: "Cuando algo se acerca a su punto de reorden, recibes una alerta clara.", icon: '<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>' },
+];
+---
+
+<section id="como" class="pb-12 pt-[72px]" data-how>
+  <div class="wrap flex flex-col gap-8">
+    <div data-reveal class="flex max-w-[660px] flex-col gap-2.5">
+      <div class="eyebrow">CÓMO FUNCIONA</div>
+      <h2 class="text-[clamp(2rem,4.4vw,2.6rem)] font-bold leading-[1.08] tracking-[-0.01em]">Tres pasos y Pango trabaja contigo</h2>
+    </div>
+
+    <div class="flex flex-wrap items-stretch gap-7">
+      <div role="group" aria-label="Pasos" class="flex flex-[1_1_380px] flex-col gap-2">
+        {steps.map((s, i) => (
+          <div data-reveal style={`--d:${i * 90}ms`}>
+            <button type="button" class={`step${i === 0 ? " on auto" : ""}`} data-step={i} aria-pressed={i === 0 ? "true" : "false"}>
+              <span class="fi" style={`background:${s.bg};color:${s.fg};width:48px;height:48px;border-radius:14px`}>
+                <svg class="ic" viewBox="0 0 24 24" aria-hidden="true" set:html={s.icon} />
+              </span>
+              <span>
+                <b class="block font-display text-[22px]">{i + 1} · {s.title}</b>
+                <span class="mt-1 block text-[15px] leading-normal text-soft">{s.body}</span>
+              </span>
+              <span class="prog" aria-hidden="true"></span>
+            </button>
+          </div>
+        ))}
+      </div>
+
+      <div data-reveal style="--d:120ms; background: linear-gradient(160deg, #1e2a22, #2b3b31)" class="relative grid min-h-[400px] flex-[1_1_420px] place-items-center overflow-hidden rounded-[32px] p-7">
+        <div aria-hidden="true" class="absolute -right-[60px] -top-[60px] size-[220px] rounded-full bg-[#e07b55]/[0.18]"></div>
+
+        <!-- Panel 1: register movement -->
+        <div class="panel is-active relative w-full max-w-[380px]" data-panel="0">
+          <div class="mock rise relative flex flex-col gap-3.5 rounded-[22px] bg-card p-[22px]" data-zoom>
+            <div class="flex items-center justify-between"><b class="font-display text-[19px]">Registrar movimiento</b><span class="chip bg-ok-bg text-ok-fg">Entrada</span></div>
+            <div class="rounded-xl border-[1.5px] border-[var(--input-line)] bg-input px-3.5 py-3 text-[15px]"><span class="block text-xs text-muted">Producto</span><b>Tornillo M8 · PRD-001</b></div>
+            <div class="flex gap-2.5">
+              <div class="flex-1 rounded-xl border-[1.5px] border-[var(--input-line)] bg-input px-3.5 py-3 text-[15px]"><span class="block text-xs text-muted">Cantidad</span><b>50</b></div>
+              <div class="flex-1 rounded-xl border-[1.5px] border-[var(--input-line)] bg-input px-3.5 py-3 text-[15px]"><span class="block text-xs text-muted">Ahora hay</span><b>40 → 90</b></div>
+            </div>
+            <div class="rounded-full bg-copper p-3.5 text-center font-semibold text-white">Registrar entrada</div>
+          </div>
+        </div>
+
+        <!-- Panel 2: forecast -->
+        <div class="panel relative w-full max-w-[400px]" data-panel="1">
+          <div class="mock rise relative flex flex-col gap-2.5 rounded-[22px] bg-card p-[22px]" data-zoom>
+            <div class="flex items-baseline justify-between"><b class="font-display text-[19px]">Demanda y pronóstico</b><span class="text-xs text-muted">Guantes talla M</span></div>
+            <svg viewBox="0 0 360 170" role="img" aria-label="Línea que sube: la demanda de las últimas semanas y el pronóstico de las próximas" class="h-auto w-full">
+              <g stroke="#e3dac8"><line x1="10" y1="30" x2="350" y2="30" /><line x1="10" y1="80" x2="350" y2="80" /><line x1="10" y1="130" x2="350" y2="130" /></g>
+              <line x1="210" y1="14" x2="210" y2="140" stroke="#8e9a91" stroke-dasharray="3 4" />
+              <polyline points="12,120 40,104 68,110 96,86 124,92 152,70 180,76 210,64" fill="none" stroke="#1e2a22" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+              <g class="rv">
+                <polygon points="210,62 240,50 270,56 300,40 330,34 330,66 300,70 270,82 240,76 210,70" fill="#b5502e" fill-opacity=".18" />
+                <polyline points="210,64 240,62 270,68 300,52 330,48" fill="none" stroke="#b5502e" stroke-width="3.5" stroke-dasharray="7 6" stroke-linecap="round" />
+                <circle cx="330" cy="48" r="7" fill="#fbf8f1" stroke="#b5502e" stroke-width="3" /><circle cx="330" cy="48" r="2.5" fill="#b5502e" />
+              </g>
+            </svg>
+            <div class="text-[13px] leading-normal text-soft">Pango ve que el consumo sube y ajusta cuándo conviene pedir.</div>
+          </div>
+        </div>
+
+        <!-- Panel 3: alerts -->
+        <div class="panel relative flex w-full max-w-[380px] flex-col gap-3" data-panel="2">
+          <div class="mock rise relative flex flex-col gap-1.5 rounded-[20px] border-l-[6px] border-crit bg-card px-5 py-[18px]" data-zoom>
+            <span class="chip self-start bg-crit-bg text-crit-fg">Crítico</span>
+            <b class="text-[17px]">Tornillo M8</b>
+            <span class="text-sm text-soft">Quedan 40 unidades. Conviene pedir antes de llegar a 80.</span>
+            <div class="mt-1.5 flex gap-2"><span class="rounded-full bg-copper px-[18px] py-2.5 text-sm font-semibold text-white">Atender</span><span class="rounded-full border-[1.5px] border-copper px-[18px] py-2.5 text-sm font-semibold text-copper-ink">Descartar</span></div>
+          </div>
+          <div class="mock rise relative flex flex-col gap-1 rounded-[20px] border-l-[6px] border-warn-fg bg-card px-5 py-4" style="animation-delay:.15s" data-zoom>
+            <span class="chip self-start bg-warn-bg text-warn-fg">Preventivo</span>
+            <b class="text-base">Cable USB</b>
+            <span class="text-sm text-soft">95 de 100. Se acerca al punto de reorden.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

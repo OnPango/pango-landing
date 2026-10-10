@@ -1,0 +1,23 @@
+---
+const faqs = [
+  ["¿Necesito saber de tecnología?", "No. Pango usa palabras sencillas y te guía paso a paso, desde el computador o el celular."],
+  ["¿Cómo sabe Pango cuándo pedir?", "Aprende de tu historial de movimientos. Con eso calcula el punto de reorden de cada producto y te avisa al acercarte."],
+  ["¿Puedo subir mi historial en Excel?", "Sí. Aceptamos archivos de Excel o CSV y un asistente te ayuda a unir cada columna con lo que Pango necesita."],
+  ["¿Mi información está protegida?", "Cada empresa tiene su información separada de las demás, y cada persona solo ve lo que su rol permite."],
+];
+---
+
+<section id="preguntas" class="py-14">
+  <div class="wrap flex max-w-[888px] flex-col gap-5">
+    <div data-reveal class="flex flex-col gap-2.5">
+      <div class="eyebrow">PREGUNTAS FRECUENTES</div>
+      <h2 class="text-[clamp(1.9rem,4vw,2.5rem)] font-bold leading-[1.1] tracking-[-0.01em]">Lo que más nos preguntan</h2>
+    </div>
+    {faqs.map(([q, a], i) => (
+      <details data-reveal style={`--d:${i * 70}ms`}>
+        <summary>{q}<svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px"><path d="m6 9 6 6 6-6" /></svg></summary>
+        <p>{a}</p>
+      </details>
+    ))}
+  </div>
+</section>

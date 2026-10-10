@@ -1,0 +1,17 @@
+---
+const registro = import.meta.env.PUBLIC_APP_URL ? `${import.meta.env.PUBLIC_APP_URL}/registro` : "#";
+---
+
+<section class="pb-[72px]">
+  <div class="wrap">
+    <div data-reveal class="relative flex flex-wrap items-center justify-between gap-6 overflow-hidden rounded-[40px] bg-[#b5502e] px-6 py-14 text-white sm:px-12">
+      <div aria-hidden="true" class="absolute -right-20 -top-[110px] size-[340px] rounded-full bg-white/10"></div>
+      <div aria-hidden="true" class="absolute -bottom-[140px] left-[40%] size-[260px] rounded-full bg-black/[0.08]"></div>
+      <div class="relative max-w-[580px]">
+        <h2 class="text-[clamp(2rem,4.4vw,2.6rem)] font-bold leading-[1.08] tracking-[-0.01em]">Empieza hoy, sin complicarte</h2>
+        <p class="mb-0 mt-3 text-lg leading-[1.55]">Crea tu cuenta y sube tu primer movimiento.</p>
+      </div>
+      <a href={registro} class="pill relative min-h-14 bg-[#fbf8f1] px-8 text-[17px] font-bold text-[#7a2e15]">Crear cuenta</a>
+    </div>
+  </div>
+</section>
