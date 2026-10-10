@@ -1,0 +1,41 @@
+---
+import "@fontsource-variable/space-grotesk";
+import "@fontsource-variable/work-sans";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = "Pango | Inventarios con pronóstico de demanda para pymes",
+  description = "Pango registra los movimientos de su almacén, aprende de lo que su equipo consume y le avisa cuándo reponer. Hecho para pequeñas y medianas empresas.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CO" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Resolve the theme before first paint to avoid a flash. -->
+    <script is:inline>
+      (function () {
+        var saved = null;
+        try { saved = localStorage.getItem("pango-theme"); } catch (e) {}
+        var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.theme = dark ? "dark" : "light";
+      })();
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
