@@ -32,6 +32,7 @@ const {
         try { saved = localStorage.getItem("pango-theme"); } catch (e) {}
         var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
         document.documentElement.dataset.theme = dark ? "dark" : "light";
+        document.documentElement.classList.add("js");
       })();
     </script>
   </head>

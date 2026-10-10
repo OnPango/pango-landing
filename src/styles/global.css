@@ -3,89 +3,169 @@
 /* Dark mode is driven by [data-theme="dark"] on <html>, set before first paint. */
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
-/* Brand tokens: Tinta #1E2A22, Arena #F6F1E7, Cobre #B5502E, Musgo #3B6E58 */
+/* Brand: Tinta #1E2A22, Arena #F6F1E7, Cobre #B5502E, Musgo #3B6E58 */
 :root {
   --bg: #f6f1e7;
-  --bg-sunk: #ffffff;
-  --fg: #1e2a22;
-  --fg-soft: #727272;
+  --card: #ffffff;
   --line: #cccccc;
+  --fg: #1e2a22;
+  --soft: #34423a;
+  --muted: #5e6a62;
   --copper: #b5502e;
-  --copper-text: #a0431f;
-  --moss: #3b6e58;
-  --on-copper: #f6f1e7;
+  --copper-hover: #9c4122;
+  --copper-ink: #9c4122;
+  --copper-soft: #e9c7b8;
+  --input: #ffffff;
+  --input-line: #d9cfb9;
+  --hero-a: #f1d9ca;
+  --hero-b: #f3e2d3;
+  --blob: #e9c7b8;
+  --ok-bg: #dcebe3;
+  --ok-fg: #245240;
+  --warn-bg: #f3e4c6;
+  --warn-fg: #6b4500;
+  --crit-bg: #f6d9d6;
+  --crit-fg: #8f1d17;
+  --crit: #b3261e;
+  --track: #ede5d3;
+  --shadow: rgba(30, 42, 34, 0.14);
 }
 :root[data-theme="dark"] {
   --bg: #1a1a1a;
-  --bg-sunk: #121212;
-  --fg: #f6f1e7;
-  --fg-soft: #727272;
+  --card: #121212;
   --line: #090909;
-  --copper: #d9835f;
-  --copper-text: #e39a79;
-  --moss: #7fb89f;
-  --on-copper: #1e2a22;
+  --fg: #f3eee2;
+  --soft: #cdd5cf;
+  --muted: #9aa89e;
+  --copper: #c4552f;
+  --copper-hover: #d4633c;
+  --copper-ink: #ec9772;
+  --copper-soft: #4a3026;
+  --input: #1b251f;
+  --input-line: #3b4d41;
+  --hero-a: #c4542f0e;
+  --hero-b: #1a1a1a;
+  --blob: rgba(196, 85, 47, 0.2);
+  --ok-bg: #25402f;
+  --ok-fg: #92d3b0;
+  --warn-bg: #4a3a14;
+  --warn-fg: #f0c675;
+  --crit-bg: #4a2220;
+  --crit-fg: #f6a49e;
+  --crit: #e5534b;
+  --track: #2f4036;
+  --shadow: rgba(0, 0, 0, 0.45);
+}
+/* Product mock-ups inside the dark panel always render as light UI. */
+.mock {
+  --card: #fbf8f1; --line: #e3dac8; --fg: #1e2a22; --soft: #34423a; --muted: #5e6a62;
+  --copper-ink: #9c4122; --input: #fff; --input-line: #d9cfb9;
+  --ok-bg: #dcebe3; --ok-fg: #245240; --warn-bg: #f3e4c6; --warn-fg: #6b4500;
+  --crit-bg: #f6d9d6; --crit-fg: #8f1d17; --crit: #b3261e; --track: #ede5d3; --copper: #b5502e;
+  color: #1e2a22;
 }
 
 @theme inline {
   --color-bg: var(--bg);
-  --color-sunk: var(--bg-sunk);
-  --color-fg: var(--fg);
-  --color-soft: var(--fg-soft);
+  --color-card: var(--card);
   --color-line: var(--line);
+  --color-fg: var(--fg);
+  --color-soft: var(--soft);
+  --color-muted: var(--muted);
   --color-copper: var(--copper);
-  --color-copper-text: var(--copper-text);
-  --color-moss: var(--moss);
-  --color-on-copper: var(--on-copper);
+  --color-copper-ink: var(--copper-ink);
+  --color-input: var(--input);
+  --color-ok-bg: var(--ok-bg);
+  --color-ok-fg: var(--ok-fg);
+  --color-warn-bg: var(--warn-bg);
+  --color-warn-fg: var(--warn-fg);
+  --color-crit-bg: var(--crit-bg);
+  --color-crit-fg: var(--crit-fg);
+  --color-crit: var(--crit);
   --font-display: "Space Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Work Sans Variable", ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
-    color-scheme: light;
-  }
-  html[data-theme="dark"] {
-    color-scheme: dark;
-  }
-  body {
-    @apply bg-bg font-sans text-fg antialiased;
-    text-wrap: pretty;
-  }
-  h1, h2, h3 {
-    @apply font-display tracking-tight;
-    text-wrap: balance;
-  }
-  :focus-visible {
-    outline: 2px solid var(--copper);
-    outline-offset: 3px;
-    border-radius: 4px;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-  }
+  html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; color-scheme: light; }
+  html[data-theme="dark"] { color-scheme: dark; }
+  body { @apply bg-bg font-sans text-fg antialiased; transition: background-color .3s; }
+  h1, h2, h3 { @apply font-display font-bold; margin: 0; }
+  :focus-visible { outline: 2px solid var(--copper); outline-offset: 3px; border-radius: 6px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 }
 
-/* Pangolin-scale texture: overlapping arcs, used once in the closing section. */
-.scales {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='32' viewBox='0 0 48 32'%3E%3Cg fill='none' stroke='%23b5502e' stroke-opacity='.28' stroke-width='1.5'%3E%3Cpath d='M0 16a12 12 0 0 1 24 0'/%3E%3Cpath d='M24 16a12 12 0 0 1 24 0'/%3E%3Cpath d='M12 32a12 12 0 0 1 24 0'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: 48px 32px;
+@layer components {
+  .wrap { @apply mx-auto w-full max-w-[1200px] px-6; }
+  .ic { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+  .eyebrow { @apply text-[13px] font-semibold tracking-[0.1em] text-copper-ink; }
+  .pill { @apply inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full px-7 text-base font-semibold no-underline; transition: transform .15s, box-shadow .15s, background .15s; }
+  .pill:hover { transform: translateY(-2px); }
+  .pill-1 { background: var(--copper); color: #fff; box-shadow: 0 8px 20px rgba(181, 80, 46, .28); }
+  .pill-1:hover { background: var(--copper-hover); }
+  .pill-2 { background: var(--card); color: var(--fg); box-shadow: 0 6px 16px var(--shadow); }
+  .chip { @apply inline-flex items-center rounded-full px-3 py-[3px] text-[13px] font-semibold; }
+  .fi { @apply inline-flex size-9 flex-none items-center justify-center rounded-[10px]; }
+  .fc { @apply absolute z-[3] flex flex-col gap-1.5 rounded-[18px] bg-card px-4 py-3.5; box-shadow: 0 14px 34px var(--shadow); }
+  .tag { @apply inline-flex min-h-11 items-center gap-2 whitespace-nowrap rounded-full border border-line bg-card px-5 text-[15px] font-medium; }
+  .tag i { @apply inline-block size-2 rounded-full bg-copper; }
+  .bn { @apply relative overflow-hidden rounded-3xl border border-line bg-card p-[26px]; transition: transform .25s, box-shadow .25s; }
+  .bn:hover { transform: translateY(-4px); box-shadow: 0 18px 34px var(--shadow); }
+  .step { @apply relative flex w-full cursor-pointer items-start gap-4 overflow-hidden rounded-[20px] border-2 border-transparent bg-transparent p-5 text-left text-fg; font-family: inherit; transition: background .2s, border-color .2s; }
+  .step:hover { background: color-mix(in srgb, var(--card) 70%, transparent); }
+  .step.on { background: var(--card); border-color: var(--copper); box-shadow: 0 10px 26px var(--shadow); }
+  .step .prog { position: absolute; left: 0; bottom: 0; height: 3px; width: 100%; background: var(--copper); transform: scaleX(0); transform-origin: left; }
+  .step.on.auto .prog { animation: prog 4.5s linear forwards; }
+  details { @apply rounded-[18px] border border-line bg-card px-[22px]; }
+  summary { @apply flex min-h-[62px] cursor-pointer list-none items-center justify-between gap-3 text-[17px] font-semibold; }
+  summary::-webkit-details-marker { display: none; }
+  summary svg { transition: transform .25s; }
+  details[open] summary svg { transform: rotate(180deg); }
+  details p { @apply m-0 mb-[18px] text-base leading-relaxed text-soft; }
+  .fl { @apply inline-flex min-h-11 items-center text-[15px] text-[#e8e2d4] no-underline hover:underline; }
 }
 
-/* Forecast chart: the one orchestrated motion on the page. */
-.draw-forecast { stroke-dasharray: 6 6; }
-.pop-alert { transform-box: fill-box; transform-origin: center; }
-@media (prefers-reduced-motion: no-preference) {
-  .reveal-forecast {
-    clip-path: inset(0 100% 0 0);
-    animation: reveal 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) 0.4s forwards;
-  }
-  .pop-alert {
-    opacity: 0;
-    animation: pop 0.5s ease-out 1.7s forwards;
-  }
+/* Hero: floating cards (kept from the design) */
+@keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(179,38,30,.45); } 70% { box-shadow: 0 0 0 10px rgba(179,38,30,0); } 100% { box-shadow: 0 0 0 0 rgba(179,38,30,0); } }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes barloop { 0%, 8% { width: 0; } 40%, 85% { width: 20%; } 100% { width: 20%; } }
+@keyframes prog { to { transform: scaleX(1); } }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes reveal { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+.f1 { animation: floaty 5s ease-in-out infinite; }
+.f2 { animation: floaty 6s ease-in-out infinite .8s; }
+.f3 { animation: floaty 5.5s ease-in-out infinite 1.6s; }
+.pulse { animation: pulse 2s infinite; }
+.mq { display: flex; gap: 12px; width: max-content; animation: marquee 32s linear infinite; }
+.mq:hover { animation-play-state: paused; }
+.bar { animation: barloop 6s ease-out infinite; }
+
+/* How it works: panels cross-fade; each replays its own entrance when it becomes active. */
+.panel { grid-area: 1 / 1; opacity: 0; visibility: hidden; transition: opacity .45s, visibility .45s; }
+.panel.is-active { opacity: 1; visibility: visible; }
+.panel.is-active .rise { animation: rise .55s ease-out both; }
+.panel.is-active .rv { animation: reveal 1.4s cubic-bezier(.2,.7,.2,1) .2s both; }
+
+/* Scroll reveal: fades in AND out as blocks enter/leave the viewport. */
+html.js [data-reveal] { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s ease; transition-delay: var(--d, 0ms); }
+html.js [data-reveal].is-in { opacity: 1; transform: none; }
+
+/* Magnifier: a circular clipped clone of the card, scaled up around the lens centre. */
+.lens-layer { position: absolute; inset: 0; z-index: 5; overflow: hidden; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .35s; }
+.lens-layer.on { opacity: 1; }
+.lens-clip { position: absolute; inset: 0; clip-path: circle(var(--r, 60px) at var(--x, 50%) var(--y, 50%)); }
+.lens-zoom { position: absolute; inset: 0; transform: scale(var(--z, 1.3)); transform-origin: var(--x, 50%) var(--y, 50%); }
+.lens-ring { position: absolute; left: var(--x, 50%); top: var(--y, 50%); width: calc(var(--r, 60px) * 2); height: calc(var(--r, 60px) * 2); transform: translate(-50%, -50%); border-radius: 50%; border: 2px solid rgba(255,255,255,.75); box-shadow: 0 8px 22px rgba(0,0,0,.18), inset 0 0 18px rgba(255,255,255,.18); }
+
+@media (prefers-reduced-motion: reduce) {
+  .f1, .f2, .f3, .pulse, .mq, .bar, .panel .rise, .panel .rv { animation: none !important; }
+  .bar { width: 20%; }
+  .pill:hover, .bn:hover { transform: none; }
+  html.js [data-reveal] { opacity: 1; transform: none; transition: none; }
 }
-@keyframes reveal { to { clip-path: inset(0 0 0 0); } }
-@keyframes pop { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: scale(1); } }
+@media (max-width: 860px) { .navlinks { display: none; } .fc.hide-s { display: none; } }
+
+/* Cards that both reveal on scroll and lift on hover. */
+html.js .bn[data-reveal] { transition: opacity .7s ease, transform .25s ease, box-shadow .25s ease; transition-delay: var(--d, 0ms), 0ms, 0ms; }
+html.js .bn[data-reveal].is-in:hover { transform: translateY(-4px); }
