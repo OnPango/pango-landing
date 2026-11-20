@@ -24,13 +24,21 @@ const {
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_CO" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/logos/pango-icono-app-marca-oscuro.svg"
+    />
     <!-- Resolve the theme before first paint to avoid a flash. -->
     <script is:inline>
       (function () {
         var saved = null;
-        try { saved = localStorage.getItem("pango-theme"); } catch (e) {}
-        var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+        try {
+          saved = localStorage.getItem("pango-theme");
+        } catch (e) {}
+        var dark = saved
+          ? saved === "dark"
+          : matchMedia("(prefers-color-scheme: dark)").matches;
         document.documentElement.dataset.theme = dark ? "dark" : "light";
         document.documentElement.classList.add("js");
       })();
