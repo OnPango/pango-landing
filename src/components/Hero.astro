@@ -7,16 +7,16 @@ const registro = import.meta.env.PUBLIC_APP_URL
 <section class="pt-2">
   <div class="wrap">
     <div
-      class="relative flex min-h-[560px] flex-wrap items-center gap-6 overflow-hidden rounded-[40px] px-6 pb-14 pt-12 sm:px-12 sm:pb-16 sm:pt-14"
+      class="relative flex min-h-140 flex-wrap items-center gap-6 overflow-hidden rounded-[40px] px-6 pb-14 pt-12 sm:px-12 sm:pb-16 sm:pt-14"
       style="background: linear-gradient(180deg, var(--hero-a) 0%, var(--hero-b) 45%, var(--bg) 100%)"
     >
       <div
         aria-hidden="true"
-        class="absolute -left-[120px] -top-[140px] size-[360px] rounded-full opacity-60"
+        class="absolute -left-30 -top-35 size-90 rounded-full opacity-60"
         style="background: var(--blob)"
       ></div>
 
-      <div class="relative z-[2] flex flex-[1_1_440px] flex-col gap-[22px]">
+      <div class="relative z-2 flex flex-[1_1_440px] flex-col gap-5.5">
         <span
           data-reveal
           class="inline-flex items-center gap-2.5 self-start rounded-full bg-[#1e2a22] py-2 pl-2.5 pr-4 text-sm font-semibold text-[#f6f1e7] dark:bg-card"
@@ -49,7 +49,7 @@ const registro = import.meta.env.PUBLIC_APP_URL
         <p
           data-reveal
           style="--d:160ms"
-          class="m-0 max-w-[480px] text-[19px] leading-[1.55] text-soft"
+          class="m-0 max-w-120 text-[19px] leading-[1.55] text-soft"
         >
           Pango sigue tus existencias, aprende cuánto consumes y te avisa cuándo
           pedir, antes de que se acabe.
@@ -70,25 +70,25 @@ const registro = import.meta.env.PUBLIC_APP_URL
       <div
         data-reveal
         style="--d:120ms"
-        class="relative min-h-[470px] flex-[1_1_420px]"
+        class="relative min-h-117.5 flex-[1_1_420px]"
       >
         <div
           aria-hidden="true"
-          class="absolute bottom-0 left-[70px] right-2.5 top-2.5 rounded-[36px] bg-[#c4552f]"
+          class="absolute bottom-0 left-17.5 right-2.5 top-2.5 rounded-[36px] bg-[#c4552f]"
           style="background-image: radial-gradient(circle at 80% 15%, rgba(255,255,255,.18), transparent 45%)"
         ></div>
-        <div class="absolute inset-x-10 bottom-6 top-[52px] flex items-center justify-center overflow-hidden rounded-[30px] bg-[#f6f0e3] shadow-[0_20px_40px_rgba(30,42,34,.18)]">
+        <div class="absolute inset-x-10 bottom-6 top-13 flex items-center justify-center overflow-hidden rounded-[30px] bg-[#f6f0e3] shadow-[0_20px_40px_rgba(30,42,34,.18)]">
           <img
             src="/img/pango-hero.png"
             alt="Pango, un pangolín enrollado entre hojas"
             width="440"
             height="300"
-            class="h-auto w-full max-w-[400px]"
+            class="h-auto w-full max-w-100"
           />
         </div>
 
         <!-- Floating cards -->
-        <div class="fc f1 left-0 top-[30px] min-w-[190px]">
+        <div class="fc f1 left-0 top-7.5 min-w-47.5">
           <div class="flex items-center gap-2.5">
             <span class="fi relative bg-crit-bg text-crit-fg">
               <svg
@@ -118,7 +118,7 @@ const registro = import.meta.env.PUBLIC_APP_URL
           <span class="text-xs text-muted">Pendientes de atender</span>
         </div>
 
-        <div class="fc f2 hide-s -right-1.5 top-1.5 min-w-[176px]">
+        <div class="fc f2 hide-s -right-1.5 top-1.5 min-w-44">
           <div class="flex items-center gap-2.5">
             <span class="fi bg-ok-bg text-ok-fg">
               <svg
@@ -145,7 +145,7 @@ const registro = import.meta.env.PUBLIC_APP_URL
           </div>
         </div>
 
-        <div class="fc f3 -right-1.5 bottom-11 min-w-[230px]">
+        <div class="fc f3 -right-1.5 bottom-11 min-w-57.5">
           <div class="flex items-center justify-between gap-2.5 text-sm">
             <b>Tornillo M8</b>
             <span class="font-semibold text-crit-fg">40 de 80</span>
@@ -155,7 +155,7 @@ const registro = import.meta.env.PUBLIC_APP_URL
             style="background: var(--track)"
           >
             <div class="bar h-2.5 rounded-full bg-crit"></div>
-            <div class="absolute -top-[3px] left-[40%] h-4 w-[3px] rounded-sm bg-fg"></div>
+            <div class="absolute -top-0.75 left-[40%] h-4 w-0.75 rounded-sm bg-fg"></div>
           </div>
           <span class="text-xs font-medium text-soft">
             Conviene pedir antes de llegar a 80
