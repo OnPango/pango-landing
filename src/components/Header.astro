@@ -1,5 +1,7 @@
 ---
-const appUrl = import.meta.env.PUBLIC_APP_URL ?? "#";
+const appUrl = import.meta.env.PUBLIC_APP_URL
+  ? `${import.meta.env.PUBLIC_APP_URL}/login`
+  : "/";
 const links = [
   { href: "#como-funciona", label: "Cómo funciona" },
   { href: "#beneficios", label: "Beneficios" },
