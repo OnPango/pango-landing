@@ -1,5 +1,7 @@
 ---
-const registro = import.meta.env.PUBLIC_APP_URL ? `${import.meta.env.PUBLIC_APP_URL}/registro` : "#";
+const registro = import.meta.env.PUBLIC_APP_URL
+  ? `${import.meta.env.PUBLIC_APP_URL}/registro`
+  : "/";
 ---
 
 <section class="pt-2">
@@ -8,46 +10,103 @@ const registro = import.meta.env.PUBLIC_APP_URL ? `${import.meta.env.PUBLIC_APP_
       class="relative flex min-h-[560px] flex-wrap items-center gap-6 overflow-hidden rounded-[40px] px-6 pb-14 pt-12 sm:px-12 sm:pb-16 sm:pt-14"
       style="background: linear-gradient(180deg, var(--hero-a) 0%, var(--hero-b) 45%, var(--bg) 100%)"
     >
-      <div aria-hidden="true" class="absolute -left-[120px] -top-[140px] size-[360px] rounded-full opacity-60" style="background: var(--blob)"></div>
+      <div
+        aria-hidden="true"
+        class="absolute -left-[120px] -top-[140px] size-[360px] rounded-full opacity-60"
+        style="background: var(--blob)"
+      >
+      </div>
 
       <div class="relative z-[2] flex flex-[1_1_440px] flex-col gap-[22px]">
-        <span data-reveal class="inline-flex items-center gap-2.5 self-start rounded-full bg-[#1e2a22] py-2 pl-2.5 pr-4 text-sm font-semibold text-[#f6f1e7] dark:bg-card">
-          <span aria-hidden="true" class="inline-flex size-6 items-center justify-center rounded-full bg-[#e07b55]">
-            <svg class="ic" viewBox="0 0 24 24" style="width:14px;height:14px;color:#1e2a22"><path d="m5 12 5 5L20 7" /></svg>
+        <span
+          data-reveal
+          class="inline-flex items-center gap-2.5 self-start rounded-full bg-[#1e2a22] py-2 pl-2.5 pr-4 text-sm font-semibold text-[#f6f1e7] dark:bg-card"
+        >
+          <span
+            aria-hidden="true"
+            class="inline-flex size-6 items-center justify-center rounded-full bg-[#e07b55]"
+          >
+            <svg
+              class="ic"
+              viewBox="0 0 24 24"
+              style="width:14px;height:14px;color:#1e2a22"
+              ><path d="m5 12 5 5L20 7"></path></svg
+            >
           </span>
           Inventario con memoria
         </span>
-        <h1 data-reveal style="--d:80ms" class="text-[clamp(2.6rem,6vw,3.75rem)] font-bold leading-[1.02] tracking-[-0.015em]">
+        <h1
+          data-reveal
+          style="--d:80ms"
+          class="text-[clamp(2.6rem,6vw,3.75rem)] font-bold leading-[1.02] tracking-[-0.015em]"
+        >
           Registra.<br />Anticipa.<br />Pide a tiempo.
         </h1>
-        <p data-reveal style="--d:160ms" class="m-0 max-w-[480px] text-[19px] leading-[1.55] text-soft">
-          Pango sigue tus existencias, aprende cuánto consumes y te avisa cuándo pedir, antes de que se acabe.
+        <p
+          data-reveal
+          style="--d:160ms"
+          class="m-0 max-w-[480px] text-[19px] leading-[1.55] text-soft"
+        >
+          Pango sigue tus existencias, aprende cuánto consumes y te avisa cuándo
+          pedir, antes de que se acabe.
         </p>
         <div data-reveal style="--d:240ms" class="mt-1 flex flex-wrap gap-3">
           <a class="pill pill-1" href={registro}>Empezar gratis</a>
           <a class="pill pill-2" href="#como">Ver cómo funciona</a>
         </div>
-        <span data-reveal style="--d:320ms" class="text-sm text-muted">Para quien no es técnico · Computador y celular</span>
+        <span data-reveal style="--d:320ms" class="text-sm text-muted"
+          >Para quien no es técnico · Computador y celular</span
+        >
       </div>
 
-      <div data-reveal style="--d:120ms" class="relative min-h-[470px] flex-[1_1_420px]">
-        <div aria-hidden="true" class="absolute bottom-0 left-[70px] right-2.5 top-2.5 rounded-[36px] bg-[#c4552f]" style="background-image: radial-gradient(circle at 80% 15%, rgba(255,255,255,.18), transparent 45%)"></div>
-        <div class="absolute inset-x-10 bottom-6 top-[52px] flex items-center justify-center overflow-hidden rounded-[30px] bg-[#f6f0e3] shadow-[0_20px_40px_rgba(30,42,34,.18)]">
-          <img src="/img/pango-hero.png" alt="Pango, un pangolín enrollado entre hojas" width="440" height="300" class="h-auto w-full max-w-[400px]" />
+      <div
+        data-reveal
+        style="--d:120ms"
+        class="relative min-h-[470px] flex-[1_1_420px]"
+      >
+        <div
+          aria-hidden="true"
+          class="absolute bottom-0 left-[70px] right-2.5 top-2.5 rounded-[36px] bg-[#c4552f]"
+          style="background-image: radial-gradient(circle at 80% 15%, rgba(255,255,255,.18), transparent 45%)"
+        >
+        </div>
+        <div
+          class="absolute inset-x-10 bottom-6 top-[52px] flex items-center justify-center overflow-hidden rounded-[30px] bg-[#f6f0e3] shadow-[0_20px_40px_rgba(30,42,34,.18)]"
+        >
+          <img
+            src="/img/pango-hero.png"
+            alt="Pango, un pangolín enrollado entre hojas"
+            width="440"
+            height="300"
+            class="h-auto w-full max-w-[400px]"
+          />
         </div>
 
         <!-- Floating cards -->
         <div class="fc f1 left-0 top-[30px] min-w-[190px]">
           <div class="flex items-center gap-2.5">
             <span class="fi relative bg-crit-bg text-crit-fg">
-              <svg class="ic" viewBox="0 0 24 24" style="width:20px;height:20px" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" /><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" /></svg>
-              <span class="pulse absolute -right-0.5 -top-0.5 size-2.5 rounded-full bg-crit" aria-hidden="true"></span>
+              <svg
+                class="ic"
+                viewBox="0 0 24 24"
+                style="width:20px;height:20px"
+                aria-hidden="true"
+                ><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"
+                ></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg
+              >
+              <span
+                class="pulse absolute -right-0.5 -top-0.5 size-2.5 rounded-full bg-crit"
+                aria-hidden="true"></span>
             </span>
             <b class="text-sm">Alertas activas</b>
           </div>
           <div class="flex items-baseline gap-2">
-            <span class="font-display text-[32px] font-bold leading-none">7</span>
-            <span class="text-[13px] font-semibold text-crit-fg">3 críticas</span>
+            <span class="font-display text-[32px] font-bold leading-none"
+              >7</span
+            >
+            <span class="text-[13px] font-semibold text-crit-fg"
+              >3 críticas</span
+            >
           </div>
           <span class="text-xs text-muted">Pendientes de atender</span>
         </div>
@@ -55,22 +114,47 @@ const registro = import.meta.env.PUBLIC_APP_URL ? `${import.meta.env.PUBLIC_APP_
         <div class="fc f2 hide-s -right-1.5 top-1.5 min-w-[176px]">
           <div class="flex items-center gap-2.5">
             <span class="fi bg-ok-bg text-ok-fg">
-              <svg class="ic" viewBox="0 0 24 24" style="width:20px;height:20px" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m9 12 2 2 4-4" /></svg>
+              <svg
+                class="ic"
+                viewBox="0 0 24 24"
+                style="width:20px;height:20px"
+                aria-hidden="true"
+                ><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"
+                ></path></svg
+              >
             </span>
             <div>
-              <div class="text-[13px] font-medium text-muted">Todo en orden</div>
-              <div class="font-display text-[22px] font-bold leading-[1.1]">230 <span class="text-[13px] font-semibold text-ok-fg">productos</span></div>
+              <div class="text-[13px] font-medium text-muted">
+                Todo en orden
+              </div>
+              <div class="font-display text-[22px] font-bold leading-[1.1]">
+                230 <span class="text-[13px] font-semibold text-ok-fg"
+                  >productos</span
+                >
+              </div>
             </div>
           </div>
         </div>
 
         <div class="fc f3 -right-1.5 bottom-11 min-w-[230px]">
-          <div class="flex items-center justify-between gap-2.5 text-sm"><b>Tornillo M8</b><span class="font-semibold text-crit-fg">40 de 80</span></div>
-          <div class="relative h-2.5 rounded-full" style="background: var(--track)">
-            <div class="bar h-2.5 rounded-full bg-crit"></div>
-            <div class="absolute -top-[3px] left-[40%] h-4 w-[3px] rounded-sm bg-fg"></div>
+          <div class="flex items-center justify-between gap-2.5 text-sm">
+            <b>Tornillo M8</b><span class="font-semibold text-crit-fg"
+              >40 de 80</span
+            >
           </div>
-          <span class="text-xs font-medium text-soft">Conviene pedir antes de llegar a 80</span>
+          <div
+            class="relative h-2.5 rounded-full"
+            style="background: var(--track)"
+          >
+            <div class="bar h-2.5 rounded-full bg-crit"></div>
+            <div
+              class="absolute -top-[3px] left-[40%] h-4 w-[3px] rounded-sm bg-fg"
+            >
+            </div>
+          </div>
+          <span class="text-xs font-medium text-soft"
+            >Conviene pedir antes de llegar a 80</span
+          >
         </div>
       </div>
     </div>
