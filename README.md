@@ -119,7 +119,7 @@ PUBLIC_APP_URL=http://localhost:5173
 
 | Variable | Descripción |
 | :--- | :--- |
-| `PUBLIC_APP_URL` | URL base de la aplicación web de Pango. Se utiliza en `Header.astro`, `Hero.astro`, `Cta.astro` y `Footer.astro` para construir los enlaces de inicio de sesión y registro. |
+| `PUBLIC_APP_URL` | URL base de la aplicación web de Pango, sin `/` final. En producción: `https://pango.onpango.com`. `src/app-links.ts` arma con ella los enlaces de inicio de sesión (`/login`) y registro (`/register`) de `Header.astro`, `Hero.astro`, `Cta.astro` y `Footer.astro`. Se lee al construir; sin ella, los enlaces van a producción. |
 
 3. Iniciar el servidor de desarrollo:
 
