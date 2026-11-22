@@ -1,5 +1,7 @@
 ---
-const registro = import.meta.env.PUBLIC_APP_URL ? `${import.meta.env.PUBLIC_APP_URL}/registro` : "#";
+import { appLinks } from "../app-links";
+
+const registro = appLinks.register;
 ---
 
 <section class="pb-[72px]">

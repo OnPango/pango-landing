@@ -1,11 +1,11 @@
 ---
-const appUrl = import.meta.env.PUBLIC_APP_URL
-  ? `${import.meta.env.PUBLIC_APP_URL}/login`
-  : "/";
+import { appLinks } from "../app-links";
+
+const appUrl = appLinks.login;
 const links = [
-  { href: "#como-funciona", label: "Cómo funciona" },
+  { href: "#como", label: "Cómo funciona" },
   { href: "#beneficios", label: "Beneficios" },
-  { href: "#para-quien", label: "Para quién" },
+  { href: "#sectores", label: "Para quién" },
   { href: "#preguntas", label: "Preguntas" },
 ];
 ---
